@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Les cours - Diginamic
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Les cours - Diginamic</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <a routerLink="/lister-cours">
+      <ion-button color="primary" expand="block" class="button">
+        <ion-icon name="book"></ion-icon>
+        <span>Lister les cours</span>
+      </ion-button>
+    </a>
+    <a routerLink="/ajouter-cours">
+      <ion-button color="primary" expand="block" class="button">
+        <ion-icon name="add"></ion-icon>
+        <span>Ajouter un cours</span>
+      </ion-button>
+    </a>
+    <a routerLink="/rechercher-cours">
+      <ion-button color="primary" expand="block" class="button">
+        <ion-icon name="search"></ion-icon>
+        <span>Rechecher un cours</span>
+      </ion-button>
+    </a>
+  </div>
+</ion-content>

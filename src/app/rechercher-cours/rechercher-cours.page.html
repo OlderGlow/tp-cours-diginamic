@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rechercher un cours</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Rechercher un cours" (ionInput)="searchCours($event)"></ion-searchbar>
+  <!-- on affiche les résultats de la recherche -->
+  <ion-list *ngIf="cours.length > 0">
+    <ion-item *ngFor="let course of cours">
+      <ion-label>
+        <h2>{{course.nom}}</h2>
+        <p>Nombre d'élèves : {{course.nbEleves}}</p>
+        <p>Professeur : {{course.nomProf}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
