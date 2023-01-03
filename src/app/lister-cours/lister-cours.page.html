@@ -9,6 +9,7 @@
 </ion-header>
 
 <ion-content>
+  <div class="container" *ngIf="cours.length > 0">
   <p style="margin-left: 1rem;">Trier par :</p>
   <ion-row class="ion-align-items-center">
     <ion-col size="4">
@@ -27,12 +28,17 @@
   </ion-row>
 
   <ion-list>
-    <ion-item *ngFor="let course of cours">
+    <ion-item *ngFor="let course of cours; let i = index;">
       <ion-label>
         <h2>{{course.nom}}</h2>
         <p>Nombre d'élèves : {{course.nbEleves}}</p>
         <p>Nom du professeur : {{course.nomProf}}</p>
+        <ion-button (click)="deleteCourse(i)" color="danger" expand="block">Supprimer</ion-button>
       </ion-label>
     </ion-item>
   </ion-list>
+  </div>
+  <div class="container" *ngIf="cours.length === 0">
+    <h2 class="ion-margin">Aucun cours n'a été ajouté</h2>
+  </div>
 </ion-content>

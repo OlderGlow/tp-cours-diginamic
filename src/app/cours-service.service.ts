@@ -23,13 +23,14 @@ export class CoursServiceService {
     }
   }
 
-  public async deleteCours(cours: Cours, position: any){
-    this.cours.splice(position, 1);
-
-    await Preferences.set({
-      key: this.COURS_STORAGE,
-      value: JSON.stringify(this.cours)
-    });
+  public async deleteCours(position: any){
+    if(position > -1){
+      this.cours.splice(position, 1);
+      await Preferences.set({
+        key: this.COURS_STORAGE,
+        value: JSON.stringify(this.cours)
+      });
+    }
   }
 
   public async saveCours(cours: Cours){

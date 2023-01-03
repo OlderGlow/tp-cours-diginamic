@@ -56,4 +56,10 @@ export class ListerCoursPage implements OnInit {
       }
       this.toggleNomProf = !this.toggleNomProf;
   }
+
+  deleteCourse(index: Number) {
+    this.coursService.deleteCours(index).then(() => {
+      this.cours = this.coursService.cours;
+    });
+  }
 }
