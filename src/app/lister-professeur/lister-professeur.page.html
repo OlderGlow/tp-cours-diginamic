@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des professeurs</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="professeurs.length > 0">
+    <p style="margin-left: 1rem;">Trier par :</p>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4">
+        <ion-button (click)="sortByNom()" color="primary" expand="block">Nom <ion-icon name="caret-up-circle-outline" *ngIf="toggleNom"></ion-icon>
+          <ion-icon name="caret-down-circle-outline" *ngIf="!toggleNom"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="sortByPrenom()" color="primary" expand="block">Prénom <ion-icon name="caret-up-circle-outline" *ngIf="togglePrenom"></ion-icon>
+          <ion-icon name="caret-down-circle-outline" *ngIf="!togglePrenom"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="sortByAge()" color="primary" expand="block">Age <ion-icon name="caret-up-circle-outline" *ngIf="toggleAge"></ion-icon>
+          <ion-icon name="caret-down-circle-outline" *ngIf="!toggleAge"></ion-icon></ion-button>
+      </ion-col>
+
+    </ion-row>
+  <ion-list>
+    <ion-item *ngFor="let professeur of professeurs">
+      <ion-label>
+        <ion-avatar item-start>
+          <ion-img [src]="professeur.urlPhoto"></ion-img>
+        </ion-avatar>
+        <h2>{{professeur.nom}} {{professeur.prenom}}</h2>
+        <p>{{professeur.age}} ans</p>
+        <ion-button (click)="deleteProfesseur(professeur)" color="danger" expand="block">Supprimer</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  </div>
+  <div class="container" *ngIf="professeurs.length === 0">
+    <h2 class="ion-margin">Aucun professeur n'a été ajouté</h2>
+  </div>
+</ion-content>

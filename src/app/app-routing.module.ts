@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'rechercher-cours',
     loadChildren: () => import('./rechercher-cours/rechercher-cours.module').then( m => m.RechercherCoursPageModule)
   },
+  {
+    path: 'ajouter-professeur',
+    loadChildren: () => import('./ajouter-professeur/ajouter-professeur.module').then( m => m.AjouterProfesseurPageModule)
+  },
+  {
+    path: 'lister-professeur',
+    loadChildren: () => import('./lister-professeur/lister-professeur.module').then( m => m.ListerProfesseurPageModule)
+  },
+  {
+    path: 'rechercher-professeur',
+    loadChildren: () => import('./rechercher-professeur/rechercher-professeur.module').then( m => m.RechercherProfesseurPageModule)
+  },
 ];
 
 @NgModule({

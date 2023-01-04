@@ -32,7 +32,7 @@
       <ion-label>
         <h2>{{course.nom}}</h2>
         <p>Nombre d'élèves : {{course.nbEleves}}</p>
-        <p>Nom du professeur : {{course.nomProf}}</p>
+        <p>Nom du professeur : {{course.nomProf.toUpperCase()}}</p>
         <ion-button (click)="deleteCourse(i)" color="danger" expand="block">Supprimer</ion-button>
       </ion-label>
     </ion-item>
