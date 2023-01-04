@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RechercherProfesseurPage } from './rechercher-professeur.page';
+import {AuthGuard} from "../auth.guard";
 
 const routes: Routes = [
   {
     path: '',
-    component: RechercherProfesseurPage
+    component: RechercherProfesseurPage,
+    canActivate: [AuthGuard]
   }
 ];
 
