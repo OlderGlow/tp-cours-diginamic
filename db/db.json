@@ -1,0 +1,19 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "identifier": "Pinheiro",
+      "password": "Adrien"
+    },
+    {
+      "id": "2",
+      "identifier": "Picquet",
+      "password": "Julien"
+    },
+    {
+      "id": "3",
+      "identifier": "Tremblay",
+      "password": "Pierre"
+    }
+  ]
+}

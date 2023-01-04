@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AjouterCoursPage } from './ajouter-cours.page';
+import {AuthGuard} from "../auth.guard";
 
 const routes: Routes = [
   {
     path: '',
-    component: AjouterCoursPage
+    component: AjouterCoursPage,
+    canActivate: [AuthGuard]
   }
 ];
 

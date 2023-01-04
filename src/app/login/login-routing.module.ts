@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ListerCoursPage } from './lister-cours.page';
-import {AuthGuard} from "../auth.guard";
+import { LoginPage } from './login.page';
+import {LoginGuard} from "../login.guard";
 
 const routes: Routes = [
   {
     path: '',
-    component: ListerCoursPage,
-    canActivate: [AuthGuard]
+    component: LoginPage,
+    canActivate: [LoginGuard]
   }
 ];
 
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ListerCoursPageRoutingModule {}
+export class LoginPageRoutingModule {}

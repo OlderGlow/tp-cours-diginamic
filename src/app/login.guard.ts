@@ -1,20 +1,17 @@
-import {Injectable, OnInit} from '@angular/core';
-import {CanActivate, Router, UrlTree} from '@angular/router';
+import { Injectable } from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AuthService} from "./auth.service";
-import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-
+export class LoginGuard implements CanActivate {
   isLogged : boolean = false
 
   constructor(
     private router : Router,
-    private authService : AuthService,
-    private cookieService: CookieService
+    private authService : AuthService
   ) {
     this.authService.isAuth$.subscribe(value => {
       this.isLogged = value;
@@ -22,14 +19,15 @@ export class AuthGuard implements CanActivate {
     })
   }
   canActivate() : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.isLogged){
+    if(!this.isLogged){
       return true;
     }
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
     return false
   }
 
   ngOnDestroy(){
     this.authService.isAuth$.unsubscribe();
   }
+
 }
