@@ -33,7 +33,6 @@ export class ProfesseurService {
   }
 
   async deleteProfesseur(professeur: Professeur) {
-    console.log(professeur.id)
     if(professeur.id > -1){
       this.professeurs.find((item, index) => {
         if(item.id === professeur.id) {
@@ -41,6 +40,7 @@ export class ProfesseurService {
         }
       })
       }
+    console.log(this.professeurs)
       await Preferences.set({
         key: this.PROFESSEUR_STORAGE,
         value: JSON.stringify(this.professeurs)

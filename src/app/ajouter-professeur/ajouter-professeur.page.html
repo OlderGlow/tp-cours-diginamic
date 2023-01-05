@@ -19,7 +19,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Age</ion-label>
-      <ion-input formControlName="age" required="true" type="numbere"></ion-input>
+      <ion-input formControlName="age" required="true" type="number"></ion-input>
     </ion-item>
     <p>Ajouter une photo :
     <ion-fab slot="fixed">
@@ -27,6 +27,9 @@
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+      <ion-avatar>
+        <ion-img *ngIf="photo" [src]="photo"></ion-img>
+      </ion-avatar>
     </p>
     <span style="display: flex; justify-content: center; align-items: center;">
     <ion-button type="submit" expand="block" [disabled]="form.invalid" style="margin-top: 2rem; width: 50%;">Ajouter</ion-button>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Preferences} from "@capacitor/preferences";
-import {UserPhoto} from "./userphoto";
-import {Directory, Filesystem} from "@capacitor/filesystem";
-import {Camera, CameraResultType, CameraSource, Photo} from "@capacitor/camera";
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Preferences  } from '@capacitor/preferences';
+import { UserPhoto } from './userphoto';
 
 @Injectable({
   providedIn: 'root'
@@ -38,30 +38,12 @@ export class PhotoService {
       photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
     }
   }
-
-  public async getPhotoByBlobUrl(blobUrl: string) {
-
-  }
-
-  public async deletePicture(photo: { filepath: any; }, position: number) {
-    this.photos.splice(position, 1);
-
-    await Preferences.set({
-      key: this.PHOTO_STORAGE,
-      value: JSON.stringify(this.photos),
-    });
-
-    // delete photo file from filesystem
-    await Filesystem.deleteFile({
-      path: photo.filepath,
-      directory: Directory.Data
-    });
-  }
-
+  
   public async addNewToGallery() {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto(
       { resultType: CameraResultType.Uri, source: CameraSource.Camera, quality: 100 });
+    await console.log(capturedPhoto);
 
     /**
      * On sauve la capture de la webcam en fichier au format UserPhoto

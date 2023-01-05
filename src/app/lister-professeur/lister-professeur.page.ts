@@ -20,6 +20,9 @@ export class ListerProfesseurPage implements OnInit {
     this.professeurService.getProfesseurs().then(() => {
       this.professeurs = this.professeurService.professeurs;
     });
+    this.photoService.loadSaved().then(() => {
+      console.log(this.photoService.photos);
+    });
   }
 
   deleteProfesseur(professeur: Professeur) {
