@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AjouterProfesseurPageRoutingModule } from './ajouter-professeur-routing.module';
 
 import { AjouterProfesseurPage } from './ajouter-professeur.page';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { AjouterProfesseurPage } from './ajouter-professeur.page';
         FormsModule,
         IonicModule,
         AjouterProfesseurPageRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      HttpClientModule
     ],
   declarations: [AjouterProfesseurPage]
 })

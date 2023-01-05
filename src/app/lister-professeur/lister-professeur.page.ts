@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProfesseurService} from "../professeur.service";
 import {Professeur} from "../professeur";
 import {PhotoService} from "../photo.service";
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-lister-professeur',
@@ -14,21 +15,17 @@ export class ListerProfesseurPage implements OnInit {
   toggleNom: Boolean = false;
   togglePrenom: Boolean = false;
   toggleAge: Boolean = false;
-  constructor(private professeurService: ProfesseurService, public photoService: PhotoService) { }
+  constructor(private professeurService: ProfesseurService, public photoService: PhotoService, private api : ApiService) { }
 
   ngOnInit() {
-    this.professeurService.getProfesseurs().then(() => {
-      this.professeurs = this.professeurService.professeurs;
-    });
-    this.photoService.loadSaved().then(() => {
-      console.log(this.photoService.photos);
-    });
+    //this.professeurs = this.professeurService.getProfesseurs();
   }
 
   deleteProfesseur(professeur: Professeur) {
     this.professeurService.deleteProfesseur(professeur).then(() => {
       this.professeurs = this.professeurService.professeurs;
     })
+    this.photoService.deletePicture(professeur.urlPhoto)
   }
 
   sortByNom() {

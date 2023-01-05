@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Professeur} from "./professeur";
 import {Preferences} from "@capacitor/preferences";
-import {Cours} from "./cours";
+import {ApiService} from "./api.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,32 +9,37 @@ import {Cours} from "./cours";
 export class ProfesseurService {
 
   professeurs: Professeur[] = [];
+
   public PROFESSEUR_STORAGE = 'professeurs';
-  constructor() {
-    this.getProfesseurs().then(() => {
-      console.log('Données chargées');
+  constructor(private api : ApiService) {
+    this.getProfesseurs();
+  }
+
+  getProfesseurs(){
+    /*const professeurs = await Preferences.get({ key: this.PROFESSEUR_STORAGE });
+    if (typeof professeurs.value === "string") {
+      this.professeurs = JSON.parse(professeurs.value) || [];
+    }*/
+    this.api.getProf().subscribe(res => {
+      this.professeurs = res || [];
     });
   }
 
-  async getProfesseurs(){
-    const professeurs = await Preferences.get({ key: this.PROFESSEUR_STORAGE });
-    if (typeof professeurs.value === "string") {
-      this.professeurs = JSON.parse(professeurs.value) || [];
-    }
-  }
-
-  async addProfesseur(professeur: Professeur) {
-    this.professeurs.push(professeur);
+  addProfesseur(professeur: Professeur) {
+    /*this.professeurs.push(professeur);
 
     await Preferences.set({
       key: this.PROFESSEUR_STORAGE,
       value: JSON.stringify(this.professeurs)
-    })
+    })*/
+
+    this.api.postProf(professeur)
   }
 
   async deleteProfesseur(professeur: Professeur) {
     if(professeur.id > -1){
       this.professeurs.find((item, index) => {
+        console.log(item)
         if(item.id === professeur.id) {
           this.professeurs.splice(index,1);
         }
@@ -45,6 +50,8 @@ export class ProfesseurService {
         key: this.PROFESSEUR_STORAGE,
         value: JSON.stringify(this.professeurs)
       });
+
+      await this.api.deleteProf(professeur);
     }
 
     async searchProfesseur(searchTerm: string) {

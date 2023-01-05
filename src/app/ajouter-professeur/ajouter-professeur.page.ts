@@ -26,14 +26,15 @@ export class AjouterProfesseurPage implements OnInit {
   }
 
   async onSubmit() {
+    console.log(this.form.value)
     await this.professeurService.addProfesseur(this.form.value);
     await this.router.navigate(['/lister-professeur']);
   }
 
   onAddPhoto() {
-    this.photoService.addNewToGallery().then(() => {
-      this.form.value.urlPhoto = this.photoService.photos[0].filePath;
-      this.photo = this.photoService.photos[0].webviewPath;
+    this.photoService.addNewToGallery().then((res) => {
+      console.log(res) // undefined
+      this.form.value.urlPhoto = res;
     });
   }
 

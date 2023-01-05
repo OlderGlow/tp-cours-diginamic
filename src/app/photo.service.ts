@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
-import { Filesystem, Directory } from '@capacitor/filesystem';
-import { Preferences  } from '@capacitor/preferences';
-import { UserPhoto } from './userphoto';
+import {Injectable} from '@angular/core';
+import {Preferences} from "@capacitor/preferences";
+import {Photos} from "./photos";
+import {Directory, Filesystem} from "@capacitor/filesystem";
+import {Camera, CameraResultType, CameraSource, Photo} from "@capacitor/camera";
+import {ApiService} from "./api.service";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
-  public photos: UserPhoto[] = [];
+  public photos: Photos[] = [];
 
   /**
    * Ma clé pour le Storage : LocalStorage par exemple pour un browser
@@ -16,7 +18,7 @@ export class PhotoService {
   private PHOTO_STORAGE = 'photos';
 
 
-  constructor() {
+  constructor(private api: ApiService) {
   }
 
   public async loadSaved() {
@@ -38,7 +40,33 @@ export class PhotoService {
       photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
     }
   }
-  
+
+  public async deletePicture(webviewPath: string) {
+    const photoList = await Preferences.get({key: this.PHOTO_STORAGE})
+    if (typeof photoList.value === "string") {
+      this.photos = JSON.parse(photoList.value)
+    }
+
+    let index = 0;
+    for(const photo of this.photos){
+      index += 1;
+      if (photo.webviewPath == webviewPath){
+        await Filesystem.deleteFile({
+          path: photo.filePath,
+          directory: Directory.Data
+        })
+        break;
+      }
+    }
+
+    this.photos.splice(index, 1);
+    console.log(this.photos)
+    await Preferences.set({
+      key: this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos)
+    })
+  }
+
   public async addNewToGallery() {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto(
@@ -49,18 +77,19 @@ export class PhotoService {
      * On sauve la capture de la webcam en fichier au format UserPhoto
      * pour charger le tableau photos
      */
-    const saveImageFile = await this.savePicture(capturedPhoto);
+    let postImg : Photos;
+    let saveImageFile = await this.savePicture(capturedPhoto);
+    this.api.postPhoto(saveImageFile).subscribe(res => postImg = res);
 
-    this.photos.unshift(<UserPhoto>saveImageFile);
+    // @ts-ignore
+    this.photos.unshift(postImg);
+
+    // @ts-ignore
+    console.log(postImg);
 
     /**
      * Prefences.set(....)
      */
-
-    await Preferences.set({
-      key: this.PHOTO_STORAGE,
-      value: JSON.stringify(this.photos),
-    });
   }
 
   /**
