@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rechercher un professeur</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Rechercher un cours" (ionInput)="searchProfesseur($event)"></ion-searchbar>
+  <!-- on affiche les résultats de la recherche -->
+  <ion-list *ngIf="professeurs.length > 0">
+    <ion-item *ngFor="let professeur of professeurs">
+      <ion-label>
+        <ion-avatar item-start>
+          <!-- <ion-img [src]="professeur.urlPhoto"></ion-img> -->
+        </ion-avatar>
+        <h2>{{professeur.nom}} {{professeur.prenom}}</h2>
+        <p>{{professeur.age}} ans</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

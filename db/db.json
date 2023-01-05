@@ -18,23 +18,35 @@
   ],
   "Photos": [
     {
-      "id": 2,
-      "filePath": "",
-      "webviewPath": ""
+      "filePath": "1672928083195.jpeg",
+      "webviewPath": "blob:http://localhost:8100/80fafda1-cd6f-4e6f-80a5-39c5f9f43f2c",
+      "id": 1
     },
     {
-      "filePath": "1672918580446.jpeg",
-      "webviewPath": "blob:http://localhost:8100/1b0e7421-5f16-43ba-bdf0-41e31d8d40e5",
+      "filePath": "1672928141807.jpeg",
+      "webviewPath": "blob:http://localhost:8100/6394f877-a401-4bca-98f3-342a0f9cd3fd",
+      "id": 2
+    },
+    {
+      "filePath": "1672928450694.jpeg",
+      "webviewPath": "blob:http://localhost:8100/9a828a28-5e95-43d5-a380-b6a46eaa76ad",
       "id": 3
     }
   ],
   "Professeurs": [
     {
-      "id": 461,
-      "nom": "ezrzerz",
-      "prenom": "gzgzefze",
-      "urlPhoto": "",
-      "age": "12"
+      "nom": "Tremblaiiiii",
+      "prenom": "Pi3rr",
+      "idPhoto": 2,
+      "age": 2,
+      "id": 2
+    },
+    {
+      "nom": "Maman",
+      "prenom": "ANNIE",
+      "idPhoto": 3,
+      "age": 31,
+      "id": 3
     }
   ],
   "Cours": []
