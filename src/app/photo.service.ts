@@ -5,6 +5,7 @@ import {Directory, Filesystem} from "@capacitor/filesystem";
 import {Camera, CameraResultType, CameraSource, Photo} from "@capacitor/camera";
 import {ApiService} from "./api.service";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,6 +71,7 @@ export class PhotoService {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto(
       { resultType: CameraResultType.Uri, source: CameraSource.Camera, quality: 100 });
+    await console.log(capturedPhoto);
 
     /**
      * On sauve la capture de la webcam en fichier au format UserPhoto

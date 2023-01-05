@@ -18,6 +18,8 @@ export class AjouterProfesseurPage implements OnInit {
     urlPhoto: new FormControl(''),
     age: new FormControl('', Validators.required),
   });
+
+  photo: any;
   constructor(private professeurService: ProfesseurService, public photoService: PhotoService, private router: Router) { }
 
   ngOnInit() {
