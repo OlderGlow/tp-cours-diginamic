@@ -31,23 +31,70 @@
       "filePath": "1672928450694.jpeg",
       "webviewPath": "blob:http://localhost:8100/9a828a28-5e95-43d5-a380-b6a46eaa76ad",
       "id": 3
+    },
+    {
+      "filePath": "1672929057953.jpeg",
+      "webviewPath": "blob:http://localhost:8100/47c0532f-52e0-4faf-8753-7bc80005c7d4",
+      "id": 4
+    },
+    {
+      "filePath": "1672929091111.jpeg",
+      "webviewPath": "blob:http://localhost:8100/88c8400c-fb82-4c8e-8729-8a4b0777216e",
+      "id": 5
+    },
+    {
+      "filePath": "1672944041618.jpeg",
+      "webviewPath": "blob:http://localhost:8100/69a0252f-bad3-49bd-95b1-c12d95b462e6",
+      "id": 6
     }
   ],
   "Professeurs": [
     {
-      "nom": "Tremblaiiiii",
-      "prenom": "Pi3rr",
-      "idPhoto": 2,
-      "age": 2,
+      "nom": "res",
+      "prenom": "rez",
+      "idPhoto": 4,
+      "age": 25,
+      "id": 4
+    },
+    {
+      "nom": "res",
+      "prenom": "ser",
+      "idPhoto": 5,
+      "age": 24,
+      "id": 5
+    },
+    {
+      "nom": "sqf",
+      "prenom": "qsf",
+      "idPhoto": 6,
+      "age": 25,
+      "id": 6
+    }
+  ],
+  "Cours": [
+    {
+      "nom": "test",
+      "nbEleves": 10,
+      "nomProf": "Tremblaiiiii",
+      "id": 1
+    },
+    {
+      "nom": "test",
+      "nbEleves": 6,
+      "nomProf": "Maman",
       "id": 2
     },
     {
-      "nom": "Maman",
-      "prenom": "ANNIE",
-      "idPhoto": 3,
-      "age": 31,
+      "nom": "res",
+      "nbEleves": 25,
+      "nomProf": "Tremblaiiiii",
       "id": 3
+    },
+    {
+      "nom": "fes",
+      "nbEleves": 25,
+      "nomProf": "Maman",
+      "id": 4
     }
-  ],
-  "Cours": []
+  ]
 }

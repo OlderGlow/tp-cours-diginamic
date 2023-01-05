@@ -26,6 +26,11 @@
   text-decoration: none;
 }
 
-ion-icon{
-  margin-right: 0.5rem;
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+

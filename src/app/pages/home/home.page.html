@@ -1,55 +1,87 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
       Les cours - Diginamic
     </ion-title>
-    <ion-button (click)="logout()" slot="end">Se déconnecter</ion-button>
+    <ion-button  color="danger" class="ion-margin" (click)="logout()" slot="end">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+<ion-menu contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Les cours - Diginamic</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Les cours - Diginamic</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <div id="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <a routerLink="/lister-cours">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="book"></ion-icon>
-        <span>Lister les cours</span>
-      </ion-button>
-    </a>
-    <a routerLink="/ajouter-cours">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="add"></ion-icon>
-        <span>Ajouter un cours</span>
-      </ion-button>
-    </a>
-    <a routerLink="/rechercher-cours">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="search"></ion-icon>
-        <span>Rechercher un cours</span>
-      </ion-button>
-    </a>
-    <a routerLink="/lister-professeur">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="book"></ion-icon>
-        <span>Lister les professeurs</span>
-      </ion-button>
-    </a>
-    <a routerLink="/ajouter-professeur">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="add"></ion-icon>
-        <span>Ajouter un professeur</span>
-      </ion-button>
-    </a>
-    <a routerLink="/rechercher-professeur">
-      <ion-button color="primary" expand="block" class="button">
-        <ion-icon name="search"></ion-icon>
-        <span>Rechercher un professeur</span>
-      </ion-button>
-    </a>
+    <app-menu></app-menu>
+  </ion-content>
+</ion-menu>
+
+
+<ion-content class="ion-padding">
+  <div id="main-content">
+    <ion-text style="text-align: center">
+      <h1>Gestion de cours</h1>
+    </ion-text>
+    <div class="card-container">
+      <ion-card color="primary">
+        <ion-card-header>
+          <ion-card-title>Lorem ipsum dolor sit amet.
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci labore laboriosam
+          laborum. Aliquid commodi eius esse fugiat harum molestias neque nesciunt nostrum quae quaerat quia, repellat
+          saepe soluta temporibus totam?
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card color="warning">
+        <ion-card-header>
+          <ion-card-title>Lorem ipsum dolor.
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aut commodi dignissimos, error fuga
+          fugiat impedit incidunt iste laudantium nam nobis, numquam quis rem repellendus rerum suscipit, vel veniam.
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card color="medium">
+        <ion-card-header>
+          <ion-card-title>Consectetur adipisicing elit.</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam esse harum iure molestias possimus ullam.
+          Debitis dolorum est eveniet, impedit magni, molestiae necessitatibus, nisi officiis repellendus soluta tempore
+          ullam voluptatem.
+        </ion-card-content>
+      </ion-card>
+
+
+    </div>
   </div>
 </ion-content>
+
+
+<app-footer></app-footer>
+
+
