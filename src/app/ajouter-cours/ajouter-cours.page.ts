@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {CoursServiceService} from "../cours-service.service";
 import {ProfesseurService} from "../professeur.service";
 import {Professeur} from "../professeur";
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-ajouter-cours',
@@ -22,9 +23,9 @@ export class AjouterCoursPage implements OnInit {
   constructor(private router: Router, private coursService: CoursServiceService, private professeurService: ProfesseurService) { }
 
   ngOnInit() {
-    this.professeurService.getProfesseurs().then(() => {
+    /*thisthis.professeurService.getProfesseurs().then(() => {
       this.professeurs = this.professeurService.professeurs;
-    });
+    });*/
   }
 
   async onSubmit() {

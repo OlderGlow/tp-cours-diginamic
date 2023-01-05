@@ -15,5 +15,27 @@
       "identifier": "Tremblay",
       "password": "Pierre"
     }
-  ]
+  ],
+  "Photos": [
+    {
+      "id": 2,
+      "filePath": "",
+      "webviewPath": ""
+    },
+    {
+      "filePath": "1672918580446.jpeg",
+      "webviewPath": "blob:http://localhost:8100/1b0e7421-5f16-43ba-bdf0-41e31d8d40e5",
+      "id": 3
+    }
+  ],
+  "Professeurs": [
+    {
+      "id": 461,
+      "nom": "ezrzerz",
+      "prenom": "gzgzefze",
+      "urlPhoto": "",
+      "age": "12"
+    }
+  ],
+  "Cours": []
 }
